@@ -5,13 +5,13 @@
 }
 
 impl Dog {
-    fn verbose_boi(&self) -> &str {
+    fn verbose_boi(&self) -> String {
         let verbose_type : &str = match self.breed {
-            Breed::Goodboi => "good boi",
-            Breed::Puffyboi => "puffy boi",
+            Breed::Goodboi    => "good boi",
+            Breed::Puffyboi   => "puffy boi",
             Breed::Torpedoboi => "torpedo boi"
         };
-        "is a " + verbose_type
+        format!("is a {}", String::from(verbose_type))
     }
 }
 
@@ -31,5 +31,5 @@ fn main() {
     };
 
 
-    println!("{} {}",dog.name,dog.is_a_good_boi());
+    println!("{} {}",&dog.name,&dog.verbose_boi());
 }
